@@ -33,5 +33,5 @@ jobs:
         echo "${SSH_KEY}" > key.pem
         chmod 600 key.pem
         ssh -o StrictHostKeyChecking=no -i "key.pem" $USERNAME@$HOST "sudo chown -R $USERNAME:$USERNAME /var/www/html/react-ec2"
-        scp -o StrictHostKeyChecking=no -i "key.pem" -r ./dist/* $USERNAME@$HOST:/var/www/html/react-ec2/
+        scp -o StrictHostKeyChecking=no -i "key.pem" -r ./dist/* $USERNAME@$HOST:/var/www/html/react-ec2/dist/
         ssh -o StrictHostKeyChecking=no -i "key.pem" $USERNAME@$HOST "sudo systemctl restart nginx"
